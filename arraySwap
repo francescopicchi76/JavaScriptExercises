@@ -1,0 +1,22 @@
+// write a function named arraySwap 
+// that takes an array of integers as input
+// and return a new array where, starting from 0, the value of i position
+// and the value of i + 1 position are inverted in their position
+
+// for example: with [5, 6] it would return [6, 5]
+// for example: with [1, 2, 3, 4] it would return [2, 1, 4, 3]
+// for example: with [7, 8, 9] it would return [8, 7, 9] because '9' can't
+// be swapped with anything else as the array is finished.
+
+function arraySwap(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 == 0 && i < arr.length - 1) {
+      result.push(arr[i+1], arr[i]);
+    }
+    else if (i % 2 == 0 && i == arr.length - 1) {
+        result.push(arr[i]);
+    }
+  }
+  return result;
+}
