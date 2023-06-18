@@ -1,0 +1,24 @@
+// write a function named algebra 
+// that receives an array of integers as input
+// and returns the product of the elements with even index after
+// subtracting from it the elements with odd index
+
+// for instance, with [1, 2, 3, 4] it would return 3 - 6 = -3
+
+function algebra(arr) {
+  const productEven = arr.reduce(function(accumulator, currentValue, currentIndex) {
+    if (currentIndex % 2 == 0) {
+      accumulator *= currentValue;
+    }
+    return accumulator;
+  });
+  
+  const subtractionOdd = arr.reduce(function(accumulator, currentValue, currentIndex) {
+    if (currentIndex % 2 != 0) {
+      accumulator -= currentValue;
+    }
+    return accumulator;
+  }, productEven);
+  
+  return subtractionOdd;
+}
