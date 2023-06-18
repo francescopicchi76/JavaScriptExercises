@@ -1,0 +1,37 @@
+// write a function named recursiveHourglass that 
+// takes an odd number different from 0 as input
+// and returns a matrix of strings representing a hourglass
+
+// for loops and while loops can't be used
+
+// for example with 3 it returns
+// [ 
+//  [ '*', '*', '*' ], 
+//  [ ' ', '*', ' ' ], 
+//  [ '*', '*', '*' ] 
+// ]
+
+// for example with 5 it returns
+// [
+//  ['*','*','*','*','*']
+//  [' ','*','*','*',' ']
+//  [' ',' ','*',' ',' ']
+//  [' ','*','*','*',' ']
+//  ['*','*','*','*','*']
+// ]
+
+function recursiveHourglass(n) {
+    let firstHalf = [];
+    const contatore = n;
+    function recursiveFirstHalf(n) {
+        if (n > 0) {
+            let array = Array(n).fill('*');
+            let arrAdd = Array((contatore - n)/2).fill(' ');
+            firstHalf.push(arrAdd.concat(array).concat(arrAdd));
+            recursiveFirstHalf(n-2);
+        }
+    }
+    recursiveFirstHalf(n);
+    let secondHalf = firstHalf.slice(0, -1).reverse();
+    return [...firstHalf, ...secondHalf];
+}
