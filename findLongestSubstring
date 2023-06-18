@@ -1,0 +1,34 @@
+// write a function named findLongestSubstring
+// that takes a string as input
+// and returns its longest substring having no repetitions
+
+// for example with "abcabcbb" it must return "abc"
+// for example with per "bbbbb" it must return "b"
+// for example with "pwwkew" it must return "wke"
+
+function findLongestSubstring(string) {
+  let substringStart = 0;
+  let substring = "";
+  let longestSubstring = "";
+  for (let i = 0; i < string.length; i++) {
+    for (let j=i-1; j>=substringStart; j--) {
+      if (string[i] == string[j]) {
+        for (let k=substringStart; k<i;k++) {
+          substring += string[k];
+        }
+        if (substring.length > longestSubstring.length) {
+          longestSubstring = substring;
+        }
+        substringStart = i;
+        substring = ""
+        break
+      }
+    }
+  }
+  if (longestSubstring !="") {
+    return longestSubstring;
+  }
+  else {
+    return string;
+  }
+}
