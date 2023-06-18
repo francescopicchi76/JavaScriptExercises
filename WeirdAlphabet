@@ -1,0 +1,25 @@
+ALFABETOSTRAMBO
+// create a function named alfabetoStrambo 
+// that takes a string in input
+// and returns a copy of the string after changing it as in the examples below
+
+// for example with "ciao a tutti" as input, it must return "ciaoro ara tuttiri"
+// with "", it must return ""
+// with "ad esempio", it must return "ad esempioro"
+// with "funziona solo con vocali alla fine", it must return 
+// "funzionara soloro con vocaliri allara finere" (works only with vowels at the end of a word)
+
+function alfabetoStrambo(s) {
+  let array = s.split("");
+  let result = [];
+  for (let i=0; i < s.length; i++) {
+    if (i>= 1 && /[ ,.;:!?]/.test(array[i]) && /[aeiou]/.test(array[i-1])) {
+        result.push("r" + array[i-1] + array[i]);
+    } else if (i == array.length - 1 && /[aeiou]/.test(array[i])) {
+        result.push(array[i] + "r" + array[i]);
+    } else {
+     result.push(array[i]);   
+    }
+  }
+  return result.join("");
+}
