@@ -1,0 +1,40 @@
+// write a function named chessboard
+// that receives an integer l as input,
+// the function must return a square matrix with side l 
+// containing '#' and ' ', conveniently alternated, that represent 
+// a chessboard with side l 
+
+// the first box must be a '#'
+
+function chessboard(l) {
+  let arrEvenRow = [];
+  for (let i = 0; i < l; i++) {
+    if (i % 2 == 0) {
+     arrEvenRow.push('#');   
+    }
+    else {
+        arrEvenRow.push(' ');
+    }
+  }
+
+let arrOddRow = [];
+  for (let i = 0; i < l; i++) {
+    if (i % 2 != 0) {
+     arrOddRow.push('#');   
+    }
+    else {
+        arrOddRow.push(' ');
+    }
+  }
+
+let result = [];
+  for (i = 0; i < l; i++) {
+    if (i % 2 == 0) {
+        result.push(arrEvenRow);
+    }
+    else {
+        result.push(arrOddRow);
+    }
+  }
+  return result;
+}
