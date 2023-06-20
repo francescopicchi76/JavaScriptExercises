@@ -7,28 +7,21 @@
 // for example with "pwwkew" it must return "wke"
 
 function findLongestSubstring(string) {
-  let substringStart = 0;
-  let substring = "";
+  let array = string.split('');
   let longestSubstring = "";
-  for (let i = 0; i < string.length; i++) {
-    for (let j=i-1; j>=substringStart; j--) {
-      if (string[i] == string[j]) {
-        for (let k=substringStart; k<i;k++) {
-          substring += string[k];
-        }
-        if (substring.length > longestSubstring.length) {
-          longestSubstring = substring;
-        }
-        substringStart = i;
-        substring = ""
-        break
+  let substringStart = 0;
+  for (let i=1; i<array.length; i++) {
+      if (array.slice(substringStart, i).indexOf(array[i]) != -1) {
+          if (array.slice(substringStart, i).length > longestSubstring.length) {
+                  longestSubstring = array.slice(substringStart, i).join('');
+              }
+              substringStart = i;
       }
-    }
   }
-  if (longestSubstring !="") {
-    return longestSubstring;
+  if (longestSubstring != "") {
+      return longestSubstring;
   }
   else {
-    return string;
+      return string;
   }
 }
