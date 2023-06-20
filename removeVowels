@@ -1,0 +1,17 @@
+// write a function named removeVowels
+// that receives a string as input
+// and returns the string without its vowels
+
+// for example "ciao" must return "c"
+// for example "aeiou" must return ""
+// for example "esercizio" must return "srcz"
+
+function removeVowels(string) {
+    let result = '';
+    for (let i = 0; i < string.length; i++) {
+        if (!/[aeiou]/i.test(string[i])) {
+            result += string[i];
+        }
+    }
+    return result;
+}
