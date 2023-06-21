@@ -1,0 +1,24 @@
+// write a function named firstSum
+// that receives an array and a number as input,
+// the function must return the first couple
+// of numbers of the array (not necessarily consecutive)
+// whose sum is equal to the number passed as argument
+
+function firstSum(arr, n) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let array = arr.slice(0, i).concat(arr.slice(i+1));
+    for (let j = 0; j < array.length; j++) {
+      if (arr[i] + array[j] == n) {
+        let matchIndex = arr.indexOf(array[j]);
+        if (i < matchIndex) {
+          result.push(arr[i], arr[matchIndex]);
+        } else {
+          result.push(arr[matchIndex], arr[i]);
+        }
+        return result;
+      }
+    }
+  }
+  return result;
+}
