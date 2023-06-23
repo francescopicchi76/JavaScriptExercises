@@ -1,2 +1,2 @@
 # JavaScriptExercises
-My version of some exercises in JavaScript kindly provided by our tutor Alberto Zaccagni during the Digitazon Web Development course. 
+My code solution to some JavaScript exercises kindly provided during the Digitazon Web Development Course by our tutor Alberto Zaccagni. 
